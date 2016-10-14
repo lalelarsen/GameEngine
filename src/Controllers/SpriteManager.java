@@ -9,7 +9,6 @@ import Components.Sprite;
 import static Controllers.SpriteController.loadSpriteRoll;
 import enums.FourDir;
 import enums.PlayerStatus;
-import enums.SpriteSheet;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -25,7 +24,7 @@ public class SpriteManager {
         this.status = status;
     }
     
-    public void addSprite(SpriteSheet sheet, FourDir dir, int x, int y, int width, int height, int wSpace, int hSpace, int amount, Enum status){
+    public void addSprite(Enum sheet, FourDir dir, int x, int y, int width, int height, int wSpace, int hSpace, int amount, Enum status){
         images.add(loadSpriteRoll(sheet, dir, x, y, width, height, wSpace, hSpace, amount, status));
     }
     

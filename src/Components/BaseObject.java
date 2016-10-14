@@ -25,7 +25,6 @@ public class BaseObject implements Plottable {
     public Physics physics;
     public Hitbox hitbox;
     public SpriteManager SM;
-    Sprite images;
     public Point forceDir = new Point(0,0);
     public int lastX = 0;
     public int lastY = 0;

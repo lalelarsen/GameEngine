@@ -5,7 +5,6 @@
  */
 package Controllers;
 
-import Objects.Block;
 import Components.BaseObject;
 import Objects.MainCharacter;
 import java.awt.Point;
@@ -19,19 +18,13 @@ public class ObjectsController {
 
     public ArrayList<BaseObject> units = new ArrayList();
     public MainCharacter Hero = new MainCharacter();
-    public Block block = new Block();
-    public Block block2 = new Block();
     Point high = new Point(20,999);
     Point last = new Point();
     int c = 0;
     
     public ObjectsController() {
-        block.setCords(300, 300);
-        block2.setCords(40, 350);
         Hero.setCords(50, 270);
         units.add(Hero);
-        units.add(block);
-        units.add(block2);
     }
 
     public void objectsUpdate() {

@@ -21,7 +21,6 @@ import javax.imageio.ImageIO;
 import Interfaces.Plottable;
 import enums.FourDir;
 import enums.PlayerStatus;
-import enums.SpriteSheet;
 import java.util.Date;
 import javafx.scene.chart.PieChart;
 
@@ -31,7 +30,7 @@ import javafx.scene.chart.PieChart;
  */
 public class MainCharacter extends BaseObject implements Plottable {
     long lastJump;
-    public int speed = 1;
+    public int speed = 5;
     public MainCharacter() {
         lastJump = System.currentTimeMillis();
         String path = "stickman.png";
@@ -45,12 +44,14 @@ public class MainCharacter extends BaseObject implements Plottable {
         }
         
         addSpriteManager(PlayerStatus.NORTH);
-        getSpriteManager().addSprite(SpriteSheet.KNIGHTANIM, FourDir.RIGHT, 40, 8, 16, 16,16,0, 2, PlayerStatus.SOUTH);
-        getSpriteManager().addSprite(SpriteSheet.KNIGHTANIM, FourDir.RIGHT, 40, 40, 16, 16,16,0, 2, PlayerStatus.EAST);
-        getSpriteManager().addSprite(SpriteSheet.KNIGHTANIM, FourDir.RIGHT, 40, 104, 16, 16,16,0, 2, PlayerStatus.NORTH);
-        getSpriteManager().addSprite(SpriteSheet.KNIGHTANIM, FourDir.RIGHT, 40, 168, 16, 16,16,0, 2, PlayerStatus.WEST);
+//        getSpriteManager().addSprite(SpriteSheet.KNIGHTANIM, FourDir.RIGHT, 40, 8, 16, 16,16,0, 2, PlayerStatus.SOUTH);
+//        getSpriteManager().addSprite(SpriteSheet.KNIGHTANIM, FourDir.RIGHT, 40, 40, 16, 16,16,0, 2, PlayerStatus.EAST);
+//        getSpriteManager().addSprite(SpriteSheet.KNIGHTANIM, FourDir.RIGHT, 40, 104, 16, 16,16,0, 2, PlayerStatus.NORTH);
+//        getSpriteManager().addSprite(SpriteSheet.KNIGHTANIM, FourDir.RIGHT, 40, 168, 16, 16,16,0, 2, PlayerStatus.WEST);
+//        getSpriteManager().addSprite(SpriteSheet.KNIGHTANIM, FourDir.RIGHT, 8, 8, 16, 16, 0, 0, 1, PlayerStatus.IDLE);
+        
         addPhysics();
-        addHitbox(imgg.getHeight(), imgg.getWidth());
+        addHitbox(64, 64);
         getPhysics().gravity = false;
         img = imgg;
         

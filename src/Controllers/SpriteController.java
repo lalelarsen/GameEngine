@@ -7,7 +7,6 @@ package Controllers;
 
 import Components.Sprite;
 import enums.FourDir;
-import enums.SpriteSheet;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -23,27 +22,32 @@ public class SpriteController {
     ArrayList<Sprite> sprites = new ArrayList();
     static BufferedImage dungeon;
     static BufferedImage knightAnim;
+    static BufferedImage knightAnimHiRes;
 
     public SpriteController() {
         try {
             dungeon = ImageIO.read(this.getClass().getResourceAsStream("/pictures/dungeon_sheet.png"));
             knightAnim = ImageIO.read(this.getClass().getResourceAsStream("/pictures/knightanim3.png"));
+            knightAnimHiRes = ImageIO.read(this.getClass().getResourceAsStream("/pictures/knightanim3_HiRes.png"));
         } catch (IOException e) {
             System.out.println("The image was not loaded.");
         }
     }
 
-    public static Sprite loadSpriteRoll(SpriteSheet sheet, FourDir dir, int x, int y, int width, int height, int wSpace, int hSpace, int amount, Enum status) {
+    public static Sprite loadSpriteRoll(Enum sheet, FourDir dir, int x, int y, int width, int height, int wSpace, int hSpace, int amount, Enum status) {
         BufferedImage[] images = new BufferedImage[amount];
         BufferedImage curr = null;
-        switch (sheet) {
-            case DUNGEON:
-                curr = dungeon;
-                break;
-            case KNIGHTANIM:
-                curr = knightAnim;
-                break;
-        }
+//        switch (sheet) {
+//            case DUNGEON:
+//                curr = dungeon;
+//                break;
+//            case KNIGHTANIM:
+//                curr = knightAnim;
+//                break;
+//            case KNIGHTANIM_HIGHRES:
+//                curr = knightAnimHiRes;
+//                break;
+//        }
         for (int i = 0; i < amount; i++) {
             images[i] = curr.getSubimage(x, y, width, height);
             switch (dir) {

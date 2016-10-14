@@ -7,6 +7,7 @@ package Controllers;
 
 import Objects.SceneOne;
 import Panels.MainPanel;
+import enums.PlayerStatus;
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import java.util.HashSet;
@@ -90,8 +91,6 @@ public class GameController {
         //get the currently pressed keys from the KeyboardController
         HashSet<Integer> currentKeys = KeyboardController.getActiveKeys();
 
-        //manage the two possible run direction
-        
         if (currentKeys.contains(KeyEvent.VK_RIGHT)) {
             //move right
             currScene.OC.Hero.move(KeyEvent.VK_RIGHT);
@@ -114,7 +113,7 @@ public class GameController {
         }
         if (currentKeys.isEmpty()) {
             //if the player is not pressing keys, the protagonist stands still
-            currScene.OC.Hero.stop();
+            currScene.OC.Hero.getSpriteManager().setStatus(PlayerStatus.IDLE);
         }
 
     }
